@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      /*deklaracja tablicy*/
+
+      let numerArray = [1,2,3];
+      let textArray = ['one', 'two', 'three'];
+      let booleanArray = [true, false, true];
+      let mixArray = [1, 'two', true];
+
+      /*wyświetlanie tablicy*/
+      console.log('Tablica numerArray');
+      console.log(numerArray);
+
+      console.log('Tablica textArray');
+      console.log(textArray);
+
+      console.log('Tablica booleanArray');
+      console.log(booleanArray);
+
+      console.log('Tablica mixArray');
+      console.log(mixArray);
+
+      /*wyciągnięcie elementu z tablicy*/
+      console.log('Trzeci element z textArray');
+      console.log(textArray[2]);
+
+      console.log('Tablica numerArray po modyfikacji drugiego elementu');
+      numerArray[1] = 400;
+      console.log(numerArray);
+
+      console.log("Element z tablicy numerArray z poza zakresu");
+      console.log(numerArray[6]);
+
+      console.log("Czy tablica numerArray zawiera wartość 1?"); /*sprawdzanie czy jest dana wartość w tablicy includes*/
+      console.log(numerArray.includes(1));
+
+      console.log("Czy tablica numerArray zawiera wartość 1000?"); /*sprawdzanie czy jest dana wartość w tablicy includes*/
+      console.log(numerArray.includes(1000));
+
+      console.log('Tablica numerArray po dodaniu elementu na koniec');
+      numerArray.push(100);
+      console.log(numerArray);
+
+      console.log('Typ zmiennej numerArray');
+      console.log(typeof numerArray);
+
+      console.log('Liczba elementów tablicy numerArray');
+      console.log(numerArray.length);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

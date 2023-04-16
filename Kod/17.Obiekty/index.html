@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      /*notacja iterałów*/
+      let person = {
+        firstName: 'Jan',
+        lastName: 'Kowalski',
+        /*metoda przedstawienia sie*/
+        introduce: function (){
+          console.log('Nazywam się ' + this.firstName + ' ' + this.lastName) /* this odnosi się dokładnie do tego obiektu*/
+        },
+      }
+
+      person.introduce();
+
+      /*zmiana włąściwości*/
+      person.firstName = 'Adam';
+      person.introduce();
+
+      /*notacja konstruktora*/
+
+      function Car(brand1, model) {
+        this.brand = brand1 + '<----'; /* przypisanie do parametru brand np brand1 */
+        this.model = model;
+
+        this.showDetails = function () {
+          console.log('Car: ' + this.brand + ' ' + this.model);
+        };
+      }
+
+      let fiat = new Car('Fiat', '126p'); /*new jest potrzebne do zwrócenia wartości*/
+      fiat.showDetails();
+
+
+      /*wywołanie obiektu poprzez klase i wywołanie konstruktora*/
+
+      class House {
+        constructor(windows, doors) {
+          this.windows = windows; /* właściwość windows do której przypisujemy parametr*/
+          this.doors = doors;
+        }
+        /*metoda*/
+        showDetails() {
+          console.log("Dom ma: " + this.windows + ' okien ' +this.doors + ' drzwi. ');
+        }
+      }
+      /*deklaracja zmiennej dokłanie parametrów*/
+      let house = new House(5,2);
+      house.showDetails();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

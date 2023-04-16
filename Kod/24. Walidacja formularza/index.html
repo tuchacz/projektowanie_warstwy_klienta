@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      form {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+      }
+      .error {
+        font-size: 0.8em;
+        color: red;
+      }
+    </style>
+    <script>
+      /*sprawdzenie załadowania DOM*/
+      window.onload = function () {
+        const MIN_EMAIL_LENGTH =  5;
+        const MIN_PASSWORD_LENGTH =  8;
+
+        let emailInput = document.getElementById('email');
+        let passwordInput = document.getElementById('password');
+
+        let emailError = document.getElementById('email-error');
+        let passwordError = document.getElementById('password-error');
+
+        document.querySelector('form').addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          if (validateForm()) {
+              window.alert('Poprawnie wysłany formularz.');
+              console.log('Adres emeil ' + emailInput.value);
+              console.log('Hasło ' + passwordInput.value);
+
+              cleanForm();
+
+          }
+        });
+
+        function validateForm() {
+          let validEmail = true;
+          let validPassword = true;
+
+          if (emailInput.value.length < MIN_EMAIL_LENGTH) {
+            validEmail = false;
+            emailError.removeAttribute('hidden');
+          } else {
+            emailError.setAttribute('hidden', '');
+          }
+
+          if (passwordInput.value.length < MIN_PASSWORD_LENGTH) {
+            validPassword = false;
+            passwordError.removeAttribute('hidden');
+          } else {
+            passwordError.setAttribute('hidden', '');
+          }
+
+          return validEmail && validPassword
+        }
+
+        function cleanForm() {
+          emailInput.value = '';
+          passwordInput.value = '';
+        }
+
+      };
+
+
+    </script>
+</head>
+<body>
+
+
+  <form>
+    <label for="email">Email</label>
+    <input id="email" type="text">
+    <!--wiadomość walidacyjna-->
+    <span id="email-error" class="error" hidden>Adres email powinien mieć min. 5 znaków</span>
+
+    <label for="password">Hasło</label>
+    <input id="password" type="password">
+    <!--wiadomość walidacyjna-->
+    <span id="password-error" class="error" hidden>Hasło powinno mieć min. 8 znaków</span>
+
+    <button>Zapisz</button>
+
+  </form>
+
+</body>
+</html>
